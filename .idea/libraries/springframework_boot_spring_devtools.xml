@@ -1,0 +1,28 @@
+<component name="libraryTable">
+  <library name="springframework.boot.spring.devtools" type="repository">
+    <properties maven-id="org.springframework.boot:spring-boot-devtools:2.0.7.RELEASE" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/spring-boot-devtools-2.0.7.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-boot-2.0.7.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-core-5.0.11.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-jcl-5.0.11.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-context-5.0.11.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-aop-5.0.11.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-beans-5.0.11.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-expression-5.0.11.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-boot-autoconfigure-2.0.7.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/lib/spring-boot-devtools-2.0.7.RELEASE-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-boot-2.0.7.RELEASE-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-core-5.0.11.RELEASE-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-jcl-5.0.11.RELEASE-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-context-5.0.11.RELEASE-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-aop-5.0.11.RELEASE-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-beans-5.0.11.RELEASE-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-expression-5.0.11.RELEASE-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-boot-autoconfigure-2.0.7.RELEASE-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

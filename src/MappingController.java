@@ -1,4 +1,7 @@
-/*
+
+import DataManager.PostgresDataManager;
+
+
 @RestController
 @RequestMapping("/api/twofootball")
 public class MappingController {
@@ -49,9 +52,9 @@ public class MappingController {
     @ResponseStatus(HttpStatus.OK)
     public String createTask() {
 
-        final PostgresTaskManagerImpl postgresTaskManagerImpl =
-                PostgresTaskManagerImpl.getPostgresTaskManagerImpl();
-        postgresTaskManagerImpl.createTableTask();
+        final PostgresDataManager postgresTaskManagerImpl =
+                PostgresDataManager.getPostgresTaskManagerImpl();
+        PostgresDataManager.createTableTask();
 
         return "Database Table created";
     }
@@ -86,4 +89,3 @@ public class MappingController {
 
 }
 
-*/

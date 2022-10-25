@@ -1,0 +1,26 @@
+<component name="libraryTable">
+  <library name="springframework.boot.spring.actuator" type="repository">
+    <properties maven-id="org.springframework.boot:spring-boot-actuator:2.6.2" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/spring-boot-actuator-2.6.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-boot-2.6.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-core-5.3.14.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-jcl-5.3.14.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-context-5.3.14.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-aop-5.3.14.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-beans-5.3.14.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-expression-5.3.14.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/lib/spring-boot-actuator-2.6.2-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-boot-2.6.2-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-core-5.3.14-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-jcl-5.3.14-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-context-5.3.14-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-aop-5.3.14-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-beans-5.3.14-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-expression-5.3.14-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>
