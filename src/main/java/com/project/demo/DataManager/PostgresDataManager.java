@@ -9,7 +9,7 @@ import java.sql.Statement;
 
 
 public class PostgresDataManager {
-    String databaseURL = "jdbc:postgres://ec2-44-210-228-110.compute-1.amazonaws.com:5432/d5lmics0j17aif";
+    String databaseURL = "jdbc:postgresql://ec2-44-210-228-110.compute-1.amazonaws.com:5432/d5lmics0j17aif";
 
     String username = "wrong";
 
