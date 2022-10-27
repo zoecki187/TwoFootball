@@ -9,11 +9,11 @@ import java.sql.Statement;
 
 
 public class PostgresDataManager {
-    String databaseURL = "jdbc:postgres://ec2-3-213-66-35.compute-1.amazonaws.com:5432/d4nfg4ibkbum92";
+    String databaseURL = "jdbc:postgres://ec2-44-210-228-110.compute-1.amazonaws.com:5432/d5lmics0j17aif";
 
-    String username = "pketljgqsawesm";
+    String username = "wrong";
 
-    String password = "1b79992c716250de0cbc8182890991378b6054939a98df1726c7d032eb049f1b";
+    String password = "very_wrong";
 
     BasicDataSource basicDataSource;
 
