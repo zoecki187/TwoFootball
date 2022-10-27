@@ -1,5 +1,6 @@
 
 import DataManager.PostgresDataManager;
+import Anwender.*;
 
 
 @RestController
@@ -19,30 +20,31 @@ public class MappingController {
     //
 
 
-    @GetMapping("/task/all")
-    public TaskList getTasks(@RequestParam(value = "name", defaultValue = "Student") String name) {
+  /*  @GetMapping("/user/all")
+    public NutzerListe getNutzerAll() {
 
-        TaskList taskList = new TaskList(
+        NutzerListe nutzerListe = new NutzerListe(
                 new Student("me", name)
         );
         taskList.setTasks();
 
         return taskList;
-    }
+    }*/
 
 
     @PostMapping(
-            path = "/task",
+            path = "/user/create",
             consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}
     )
     @ResponseStatus(HttpStatus.OK)
-    public String createTask(@RequestBody Task task) {
+    public String createUser(@RequestBody String email, String passwort) {
 
-        TaskList taskList = new TaskList(
-                new Student("me", "ignore")
-        );
-        taskList.addTask(task);
-        return task.getName();
+       ArrayList nl = NutzerListe.getNutzerAll();
+
+     int  id= nl.get(nl.size()-1).getNutzerID();
+
+        Nutzer neuerUser = new Nutzer(email, passwort, id);
+        return "Neuer User erstellt: "+email+"ID: "+id;
     }
 
 
@@ -50,13 +52,13 @@ public class MappingController {
             path = "/task/createtable"
     )
     @ResponseStatus(HttpStatus.OK)
-    public String createTask() {
+    public String createUserTable() {
 
-        final PostgresDataManager postgresTaskManagerImpl =
-                PostgresDataManager.getPostgresTaskManagerImpl();
+        final PostgresDataManager postgresDM =
+                PostgresDataManager.getPostgresDataManager();
         PostgresDataManager.createTableTask();
 
-        return "Database Table created";
+        return "Database User-Table created";
     }
 
 

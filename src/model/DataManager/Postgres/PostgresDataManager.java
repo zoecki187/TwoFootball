@@ -16,7 +16,7 @@ public class PostgresDataManager {
     String password = "1b79992c716250de0cbc8182890991378b6054939a98df1726c7d032eb049f1b";
     BasicDataSource basicDataSource;
 
-    static PostgresDataManager postgresDataManager = null;
+    static PostgresDataManager postgresDataManagerObj = null;
 
     private PostgresDataManager() {
         basicDataSource = new BasicDataSource();
@@ -25,10 +25,10 @@ public class PostgresDataManager {
         basicDataSource.setPassword(password);
     }
 
-    static public PostgresDataManager getPostgresTaskManagerImpl() {
-        if (postgresTaskManager == null)
-            postgresTaskManager = new PostgresTaskManagerImpl();
-        return postgresTaskManager;
+    static public PostgresDataManager getPostgresDataManager() {
+        if (postgresDataManagerObj == null)
+            postgresDataManagerObj = new PostgresDataManager();
+        return postgresDataManagerObj;
     }
 
 
@@ -49,12 +49,40 @@ public class PostgresDataManager {
 
     }
 
-    public void createTableTask() {
+    public void createTableUser() {
 
-        // Be carefull: It deletes data if table already exists.
+        // deletes data if table already exists.
         //
+
         Statement stmt = null;
         Connection connection = null;
+        try{
+            connection = basicDataSource.getConnection();
+            stmt = connection.createStatement();
+            String dropTable = "DROP TABLE IF EXISTS user";
+            stmt.executeUpdate(dropTable);
+
+            String createTable = "CREATE TABLE user (" +
+                    "id SERIAL PRIMARY KEY, " +
+                    "email varchar(100) NOT NULL, " +
+                    "praeferenz varchar(250) NOT NULL," +
+                    "passwort varchar(250) NOT NULL, " +
+                    "eingeloggt boolean NOT NULL)";
+            stmt.executeUpdate(createTable);
+
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+        try{
+            stmt.close();
+            connection.close();
+
+        }
+        catch(SQLException e){
+
+            e.printStackTrace();
+        }
 
 
     }
