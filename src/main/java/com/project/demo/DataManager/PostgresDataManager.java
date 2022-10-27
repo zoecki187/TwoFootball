@@ -3,12 +3,13 @@ package com.project.demo.DataManager;
 import org.apache.commons.dbcp.BasicDataSource;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 
 
 public class PostgresDataManager {
-    String databaseURL = "postgres://pketljgqsawesm:1b79992c716250de0cbc8182890991378b6054939a98df1726c7d032eb049f1b@ec2-3-213-66-35.compute-1.amazonaws.com:5432/d4nfg4ibkbum92";
+    String databaseURL = "jdbc:postgres://ec2-3-213-66-35.compute-1.amazonaws.com:5432/d4nfg4ibkbum92";
 
     String username = "pketljgqsawesm";
 
@@ -51,11 +52,34 @@ public class PostgresDataManager {
 */
     public void createTableUser() {
 
-        // Be carefull: It deletes data if table already exists.
-        //
-        Statement stmt = null;
+       Statement stmt = null;
         Connection connection = null;
+        try{
+            connection = basicDataSource.getConnection();
+            stmt = connection.createStatement();
+            String dropTable = "DROP TABLE IF EXISTS user";
+            stmt.executeUpdate(dropTable);
 
+            String createTable = "CREATE TABLE user (" +
+                    "id SERIAL PRIMARY KEY, " +
+                    "email varchar(250) NOT NULL, " +
+                    "verein varchar(100) NOT NULL, " +
+                    "passwort varchar(250) NOT NULL)";
+            stmt.executeUpdate(createTable);
+
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+        try{
+            stmt.close();
+            connection.close();
+
+        }
+        catch(SQLException e){
+
+            e.printStackTrace();
+        }
 
     }
 }
