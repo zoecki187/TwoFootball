@@ -1,6 +1,6 @@
 package com.project;
-import DataManager.PostgresDataManager;
 
+import com.project.demo.DataManager.PostgresDataManager;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -59,7 +59,7 @@ public class MappingController {
     public String createUserTable() {
 
         final PostgresDataManager postgresDataManager =
-                PostgresDataManager.getPostgresDataManager();
+                PostgresDataManager.getPostgresDataManger();
         postgresDataManager.createTableUser();
 
         return "Database User-Table created";

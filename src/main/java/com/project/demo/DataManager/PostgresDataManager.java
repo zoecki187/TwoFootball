@@ -1,4 +1,4 @@
-package com.project.demo.DataManager.Postgres;
+package com.project.demo.DataManager;
 
 import org.apache.commons.dbcp.BasicDataSource;
 
