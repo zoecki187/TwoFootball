@@ -65,6 +65,28 @@ public class MappingController {
         return "Database User-Table created";
     }
 
+    @PostMapping(
+            path = "/liga/createtable"
+    )
+    @ResponseStatus(HttpStatus.OK)
+    public String createLigaTable() {
+
+        final PostgresDataManager postgresDataManager =
+                PostgresDataManager.getPostgresDataManger();
+        postgresDataManager.createTableLigen();
+
+        return "Database Liga-Table created";
+    }
+/*
+    @PostMapping(
+            path = "/liga/all"
+    )
+    @ResponseStatus(HttpStatus.OK)
+    public String addLigaTable() {
+
+   // ICH FÜLLE DIESE DBTAB ZUNÄCHST MIT REST-CLIENT
+    }*/
+
 
 
 

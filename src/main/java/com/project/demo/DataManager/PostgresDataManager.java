@@ -82,4 +82,36 @@ public class PostgresDataManager {
         }
 
     }
+
+    public void createTableLigen() {
+
+        Statement stmt = null;
+        Connection connection = null;
+        try{
+            connection = basicDataSource.getConnection();
+            stmt = connection.createStatement();
+            String dropTable = "DROP TABLE IF EXISTS ligen";
+            stmt.executeUpdate(dropTable);
+
+            String createTable = "CREATE TABLE ligen (" +
+                    "id SERIAL PRIMARY KEY, " +
+                    "name varchar(250) NOT NULL, " +
+                    "anzvereine int NOT NULL)";
+            stmt.executeUpdate(createTable);
+
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+        try{
+            stmt.close();
+            connection.close();
+
+        }
+        catch(SQLException e){
+
+            e.printStackTrace();
+        }
+
+    }
 }
