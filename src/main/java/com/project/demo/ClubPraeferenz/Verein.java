@@ -11,11 +11,15 @@ public class Verein {
         this.clubName = name;
         this.clubID = clubID;
         this.liga = ligaObjekt.getLiga();
-        this.ligaID = ligaObjekt.getligaID();
+        //this.ligaID = ligaObjekt.getligaID();
     }
     public void zeigeVereinInfo(int clubID){
         //DetailPage Infos
     }
+    public static void addVerein(Verein v){
+       // PostgresDataManager.getPostgresDataManger().addVereinTab(v);
+    }
+    //still have to implement logic when object is a parameter
     public String getVerein(){
         return clubName;
     }

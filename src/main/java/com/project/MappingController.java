@@ -1,8 +1,9 @@
 package com.project;
 
+import com.project.demo.ClubPraeferenz.Liga;
 import com.project.demo.DataManager.PostgresDataManager;
-
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -11,17 +12,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/twofootball")
 public class MappingController {
 
-    // TODO
-    // The student is completely ignored.
-    //
-
-    // TODO
-    // delete, update, get by id, get sorted, ...
-    //
-
-    // TODO
-    // Set the used DataProvider (ProperyFileManager, PostgresMaganer) here and not in TaskList
-    //
 
 
   /*  @GetMapping("/user/all")
@@ -77,15 +67,32 @@ public class MappingController {
 
         return "Database Liga-Table created";
     }
-/*
+
     @PostMapping(
-            path = "/liga/all"
+            path = "/liga",
+            consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}
     )
     @ResponseStatus(HttpStatus.OK)
-    public String addLigaTable() {
+    public String addLigaTable(@RequestBody Liga liga) {
 
-   // ICH FÜLLE DIESE DBTAB ZUNÄCHST MIT REST-CLIENT
-    }*/
+        //  Liga.addLiga(liga);
+        return liga.getLiga() + liga.getVereine() + liga.getligaID();
+
+    }
+
+    @PutMapping(
+            path = "/verein/all",
+            consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}
+    )
+    @ResponseStatus(HttpStatus.OK)
+    public String addVereineTable(@RequestParam String name, int anzahlvereine) {
+
+    /*Liga liga = new Liga (name, anzahlvereine);
+     //  Liga.addLiga(liga);
+
+        return liga.getLiga() + liga.getVereine();*/
+return "hallo falsch";
+    }
 
 
 

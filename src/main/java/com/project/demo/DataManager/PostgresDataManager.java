@@ -1,5 +1,6 @@
 package com.project.demo.DataManager;
 
+import com.project.demo.ClubPraeferenz.Liga;
 import org.apache.commons.dbcp.BasicDataSource;
 
 import java.sql.Connection;
@@ -32,7 +33,44 @@ public class PostgresDataManager {
         return postgresDataManager;
     }
 
-/*
+    public void addLigaTab(Liga l) {
+
+        Statement stmt = null;
+        Connection connection = null;
+
+        try {
+            connection = basicDataSource.getConnection();
+            stmt = connection.createStatement();
+            String udapteSQL = "INSERT into ligen (id, name, anzvereine) VALUES (" +
+                    "'" + l.getligaID() + "', " +
+                    "'" + l.getLiga() + "', " +
+                    "'" + l.getVereine() + "')";
+
+            stmt.executeUpdate(udapteSQL);
+
+            stmt.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            stmt.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+    public void addVereinTab() {
+
+        Statement stmt = null;
+        Connection connection = null;
+
+
+    }
+
+
+    /*
     @Override
     public Collection<Task> getAllTasks(Student student) {
 
@@ -97,6 +135,39 @@ public class PostgresDataManager {
                     "id SERIAL PRIMARY KEY, " +
                     "name varchar(250) NOT NULL, " +
                     "anzvereine int NOT NULL)";
+            stmt.executeUpdate(createTable);
+
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+        try{
+            stmt.close();
+            connection.close();
+
+        }
+        catch(SQLException e){
+
+            e.printStackTrace();
+        }
+
+    }
+
+    public void createTableVereine() {
+
+        Statement stmt = null;
+        Connection connection = null;
+        try{
+            connection = basicDataSource.getConnection();
+            stmt = connection.createStatement();
+            String dropTable = "DROP TABLE IF EXISTS vereine";
+            stmt.executeUpdate(dropTable);
+
+            String createTable = "CREATE TABLE vereine (" +
+                    "id SERIAL PRIMARY KEY, " +
+                    "name varchar(250) NOT NULL, " +
+                    "ligaID int NOT NULL, " +
+                    "letztergegner varchar(250) NOT NULL)";
             stmt.executeUpdate(createTable);
 
         }

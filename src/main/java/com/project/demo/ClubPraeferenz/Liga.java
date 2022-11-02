@@ -1,19 +1,24 @@
 package com.project.demo.ClubPraeferenz;
 
+import com.project.demo.DataManager.PostgresDataManager;
+
 public class Liga {
     private int ligaID;
-    private String name;
+    private String name = "";
 
-    public Liga(int ligaID, String name){
+    int anzahlvereine = 18;
+
+    public Liga(int id, String name, int azv){
         this.ligaID = ligaID;
         this.name = name;
+        this.anzahlvereine = azv;
     }
 
     public void zeigeLigaInfo(int ligaID){
         //Was genau soll hier passieren?
     }
-    public void setTable(){
-        //Tabelle aktualisieren
+    public static void addLiga(Liga l){
+        PostgresDataManager.getPostgresDataManger().addLigaTab(l);
     }
 
     public void getSpieltagsergebnis(){
@@ -25,6 +30,9 @@ public class Liga {
     }
     public String getLiga(){
         return name;
+    }
+    public int getVereine(){
+        return anzahlvereine;
     }
 
 }
