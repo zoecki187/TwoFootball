@@ -167,7 +167,7 @@ public class PostgresDataManager {
                     "id SERIAL PRIMARY KEY, " +
                     "name varchar(250) NOT NULL, " +
                     "ligaID int NOT NULL, " +
-                    "letztergegner varchar(250) NOT NULL)";
+                    "externeID int NOT NULL)";
             stmt.executeUpdate(createTable);
 
         }

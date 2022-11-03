@@ -38,6 +38,18 @@ public class MappingController {
 
         return "Database Liga-Table created";
     }
+    @PostMapping(
+            path = "/verein/createtable"
+    )
+    @ResponseStatus(HttpStatus.OK)
+    public String createVereinTable() {
+
+        final PostgresDataManager postgresDataManager =
+                PostgresDataManager.getPostgresDataManger();
+        postgresDataManager.createTableVereine();
+
+        return "Database Verein-Table created";
+    }
 
     @PostMapping(
             path = "/liga",
