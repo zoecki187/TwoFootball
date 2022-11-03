@@ -13,35 +13,6 @@ import org.springframework.web.bind.annotation.*;
 public class MappingController {
 
 
-
-  /*  @GetMapping("/user/all")
-    public NutzerListe getNutzerAll() {
-
-        NutzerListe nutzerListe = new NutzerListe(
-                new Student("me", name)
-        );
-        taskList.setTasks();
-
-        return taskList;
-    }*/
-
-/*
-    @PostMapping(
-            path = "/user/create",
-            consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}
-    )
-    @ResponseStatus(HttpStatus.OK)
-    public String createUser(@RequestBody String email, String passwort) {
-
-       ArrayList nl = NutzerListe.getNutzerAll();
-
-     int  id= nl.get(nl.size()-1).getNutzerID();
-
-        Nutzer neuerUser = new Nutzer(email, passwort, id);
-        return "Neuer User erstellt: "+email+"ID: "+id;
-    }
-
-*/
     @PostMapping(
             path = "/user/createtable"
     )
@@ -73,10 +44,10 @@ public class MappingController {
             consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}
     )
     @ResponseStatus(HttpStatus.OK)
-    public String addLigaTable(@RequestBody Liga liga) {
+    public String addLiga(@RequestBody Liga liga) {
 
-        //  Liga.addLiga(liga);
-        return liga.getLiga() + liga.getVereine() + liga.getligaID();
+         Liga.addLiga(liga);
+        return liga.getLiga() + liga.getVereine() + liga.getligaID() + "DatabaseCreatedLiga";
 
     }
 
@@ -94,35 +65,5 @@ public class MappingController {
 return "hallo falsch";
     }
 
-
-
-
-/*
-    @PostMapping(
-            path = "/alexa",
-            consumes = {MediaType.APPLICATION_JSON_VALUE},
-            produces = {MediaType.APPLICATION_JSON_VALUE}
-    )
-    public AlexaRO getTasks(@RequestBody AlexaRO alexaRO) {
-
-        String outText = "";
-
-
-        return alexaRO;
-    }
-
-    private AlexaRO prepareResponse(AlexaRO alexaRO, String outText, boolean shouldEndSession) {
-
-        alexaRO.setRequest(null);
-        alexaRO.setSession(null);
-        alexaRO.setContext(null);
-        OutputSpeechRO outputSpeechRO = new OutputSpeechRO();
-        outputSpeechRO.setType("PlainText");
-        outputSpeechRO.setText(outText);
-        ResponseRO response = new ResponseRO(outputSpeechRO, shouldEndSession);
-        alexaRO.setResponse(response);
-        return alexaRO;
-    }
-*/
 }
 

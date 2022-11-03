@@ -8,10 +8,10 @@ public class Liga {
 
     int anzahlvereine = 18;
 
-    public Liga(int id, String name, int azv){
-        this.ligaID = ligaID;
+    public Liga(int id, String name, int anzahlvereine){
+        this.ligaID = id;
         this.name = name;
-        this.anzahlvereine = azv;
+        this.anzahlvereine = anzahlvereine;
     }
 
     public void zeigeLigaInfo(int ligaID){
