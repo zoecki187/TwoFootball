@@ -82,7 +82,7 @@ public class MappingController {
             consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}
     )
     @ResponseStatus(HttpStatus.OK)
-    public String addNutzer(@RequestParam Nutzer nutzer) {
+    public String addNutzer(@RequestBody Nutzer nutzer) {
 
         Nutzer.addNutzer(nutzer);
         return "Nutzer "+nutzer.getNutzerEmail()+" zur DB hinzugefügt per ID: "+nutzer.getNutzerID()+"; Verein "+nutzer.getNutzerPraefVerein()+" / Liga "+nutzer.getNutzerPraefLiga();
