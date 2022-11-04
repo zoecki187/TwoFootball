@@ -78,7 +78,7 @@ public class MappingController {
     }
 
     @PostMapping(
-            path = "/user",
+            path = "/nutzer",
             consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}
     )
     @ResponseStatus(HttpStatus.OK)
