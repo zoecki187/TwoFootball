@@ -6,21 +6,21 @@ public class Nutzer {
     private String email;
 
     private int id;
-    private int PraefVerein;
-    private int PraefLiga;
+    private int praefverein;
+    private int praefliga;
 
 
-    public Nutzer (int id, String email, int PraefVerein, int PraefLiga){
+    public Nutzer (int id, String email, int praefverein, int praefliga){
     this.id=id;
     this.email=email;
-    this.PraefVerein=PraefVerein;
-    this.PraefLiga=PraefLiga;
+    this.praefverein=praefverein;
+    this.praefliga=praefliga;
     }
 
     public int getNutzerID(){return id;}
     public String getNutzerEmail(){return email;}
-    public int getNutzerPraefVerein(){return PraefVerein;}
-    public int getNutzerPraefLiga(){return PraefLiga;}
+    public int getNutzerPraefVerein(){return praefverein;}
+    public int getNutzerPraefLiga(){return praefliga;}
     public static void addNutzer(Nutzer n){
         PostgresDataManager.getPostgresDataManger().addNutzerToTab(n);
     }
