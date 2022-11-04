@@ -14,16 +14,10 @@ public class Liga {
         this.anzahlvereine = anzahlvereine;
     }
 
-    public void zeigeLigaInfo(int ligaID){
-        //Was genau soll hier passieren?
-    }
     public static void addLiga(Liga l){
         PostgresDataManager.getPostgresDataManger().addLigaToTab(l);
     }
 
-    public void getSpieltagsergebnis(){
-        //Spieltagsergebnisse einblenden
-    }
 
     public int getligaID(){
         return ligaID;

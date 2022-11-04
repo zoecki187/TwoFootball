@@ -1,6 +1,6 @@
 package com.project.demo.DataManager;
 import com.project.demo.ClubPraeferenz.Verein;
-import com.project.demo.Anwender.*;
+import com.project.demo.Anwender.Nutzer;
 
 import com.project.demo.ClubPraeferenz.Liga;
 import org.apache.commons.dbcp.BasicDataSource;
@@ -137,8 +137,8 @@ public class PostgresDataManager {
             String createTable = "CREATE TABLE nutzer (" +
                     "id SERIAL PRIMARY KEY, " +
                     "email varchar(250) NOT NULL, " +
-                    "PraefVerein varchar(100) NOT NULL, " +
-                    "PraefLiga varchar(250) NOT NULL)";
+                    "PraefVerein int NOT NULL, " +
+                    "PraefLiga int NOT NULL)";
             stmt.executeUpdate(createTable);
 
         }
