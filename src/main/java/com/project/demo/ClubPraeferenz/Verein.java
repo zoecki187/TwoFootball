@@ -1,29 +1,29 @@
 package com.project.demo.ClubPraeferenz;
 
+import com.project.demo.DataManager.PostgresDataManager;
+
 public class Verein {
     private String clubName;
-    private int clubID;
-    String liga;
+    private int id;
+    String name;
     int ligaID;
-    public Liga ligaObjekt;
+    int externeID;
 
-    public Verein(String name, int clubID, Liga ligaObjekt){
-        this.clubName = name;
-        this.clubID = clubID;
-        this.liga = ligaObjekt.getLiga();
-        //this.ligaID = ligaObjekt.getligaID();
-    }
-    public void zeigeVereinInfo(int clubID){
-        //DetailPage Infos
+    public Verein(int id, String name, int ligaID, int externeID){
+       this.id=id;
+       this.name=name;
+       this.ligaID=ligaID;
+       this.externeID=externeID;
     }
     public static void addVerein(Verein v){
-       // PostgresDataManager.getPostgresDataManger().addVereinTab(v);
+        PostgresDataManager.getPostgresDataManger().addVereinToTab(v);
     }
-    //still have to implement logic when object is a parameter
     public String getVerein(){
-        return clubName;
+        return name;
     }
-    public int getClubID(){
-        return clubID;
+    public int getVereinID(){
+        return id;
     }
+    public int getLigaID(){return ligaID;}
+    public int getExterneID(){return externeID;}
 }

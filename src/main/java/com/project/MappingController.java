@@ -1,10 +1,12 @@
 package com.project;
 
 import com.project.demo.ClubPraeferenz.Liga;
+import com.project.demo.ClubPraeferenz.Verein;
 import com.project.demo.DataManager.PostgresDataManager;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import com.project.demo.Anwender.Nutzer;
 
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -12,16 +14,16 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/twofootball")
 public class MappingController {
 
-
+    // DB-Tabellen erzeugen
     @PostMapping(
-            path = "/user/createtable"
+            path = "/nutzer/createtable"
     )
     @ResponseStatus(HttpStatus.OK)
-    public String createUserTable() {
+    public String createNutzerTable() {
 
         final PostgresDataManager postgresDataManager =
                 PostgresDataManager.getPostgresDataManger();
-        postgresDataManager.createTableUser();
+        postgresDataManager.createTableNutzer();
 
         return "Database User-Table created";
     }
@@ -51,6 +53,7 @@ public class MappingController {
         return "Database Verein-Table created";
     }
 
+    //Einträge in die jeweiligen Tabellen schreiben
     @PostMapping(
             path = "/liga",
             consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}
@@ -59,22 +62,30 @@ public class MappingController {
     public String addLiga(@RequestBody Liga liga) {
 
          Liga.addLiga(liga);
-        return liga.getLiga() + liga.getVereine() + liga.getligaID() + "DatabaseCreatedLiga";
+        return "Liga "+liga.getLiga()+" zur DB hinzugefügt mit ID / Vereine: "+liga.getligaID()+" / "+liga.getVereine();
 
     }
 
-    @PutMapping(
-            path = "/verein/all",
+    @PostMapping(
+            path = "/verein",
             consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}
     )
     @ResponseStatus(HttpStatus.OK)
-    public String addVereineTable(@RequestParam String name, int anzahlvereine) {
+    public String addVerein(@RequestBody Verein verein) {
 
-    /*Liga liga = new Liga (name, anzahlvereine);
-     //  Liga.addLiga(liga);
+        Verein.addVerein(verein);
+        return "Verein "+verein.getVerein()+" zur DB hinzugefügt aus Liga: "+verein.getLigaID()+"; ID / externAPI: "+verein.getVereinID()+" / "+verein.getExterneID();
+    }
 
-        return liga.getLiga() + liga.getVereine();*/
-return "hallo falsch";
+    @PostMapping(
+            path = "/user",
+            consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}
+    )
+    @ResponseStatus(HttpStatus.OK)
+    public String addNutzer(@RequestParam Nutzer nutzer) {
+
+        Nutzer.addNutzer(nutzer);
+        return "Nutzer "+nutzer.getNutzerEmail()+" zur DB hinzugefügt per ID: "+nutzer.getNutzerID()+"; Verein "+nutzer.getNutzerPraefVerein()+" / Liga "+nutzer.getNutzerPraefLiga();
     }
 
 }

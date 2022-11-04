@@ -1,7 +1,7 @@
 package com.project.demo.Anwender;
 
 public class Anmeldung {
-
+/*
     private boolean angemeldet = false;
 
     private Anmeldung(){};
@@ -36,5 +36,5 @@ public class Anmeldung {
     public void ausloggen(String email, String passwort){
         angemeldet = false;
     }
-
+*/
 }

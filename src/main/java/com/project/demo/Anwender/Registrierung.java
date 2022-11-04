@@ -1,7 +1,7 @@
 package com.project.demo.Anwender;
 
 public class Registrierung {
-
+/*
     private boolean registriert;
 
     private Registrierung(){};
@@ -22,5 +22,5 @@ public class Registrierung {
             return true;
         }
         else{ return false;} //User kann nicht registriert werden, da bereits registriert
-    }
+    }*/
 }

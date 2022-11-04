@@ -1,6 +1,7 @@
 package com.project.demo.ClubPraeferenz;
 
 public class Praeferenz {
+    /*
    String verein;
    int vereinsID;
 
@@ -8,5 +9,5 @@ public class Praeferenz {
         this.verein = verein.getVerein();
         this.vereinsID = verein.getClubID();
 
-    }
+    }*/
 }

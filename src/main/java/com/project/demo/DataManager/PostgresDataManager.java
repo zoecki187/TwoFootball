@@ -1,4 +1,6 @@
 package com.project.demo.DataManager;
+import com.project.demo.ClubPraeferenz.Verein;
+import com.project.demo.Anwender.*;
 
 import com.project.demo.ClubPraeferenz.Liga;
 import org.apache.commons.dbcp.BasicDataSource;
@@ -33,7 +35,7 @@ public class PostgresDataManager {
         return postgresDataManager;
     }
 
-    public void addLigaTab(Liga l) {
+    public void addLigaToTab(Liga l) {
 
         Statement stmt = null;
         Connection connection = null;
@@ -61,48 +63,82 @@ public class PostgresDataManager {
         }
 
     }
-    public void addVereinTab() {
+    public void addVereinToTab(Verein v) {
 
         Statement stmt = null;
         Connection connection = null;
 
+        try {
+            connection = basicDataSource.getConnection();
+            stmt = connection.createStatement();
+            String udapteSQL = "INSERT into vereine (id, name, ligaID, externeID) VALUES (" +
+                    "'" + v.getVereinID() + "', " +
+                    "'" + v.getVerein() + "', " +
+                    "'" + v.getLigaID() + "', " +
+                    "'" + v.getExterneID() + "')";
+
+            stmt.executeUpdate(udapteSQL);
+
+            stmt.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            stmt.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
-
-
-    /*
-    @Override
-    public Collection<Task> getAllTasks(Student student) {
-
-        List<Task> tasks = new ArrayList<>();
-
-        return tasks;
-    }
-
-    @Override
-    public void addTask(Task task, Student student) {
+    public void addNutzerToTab(Nutzer n) {
 
         Statement stmt = null;
         Connection connection = null;
 
+        try {
+            connection = basicDataSource.getConnection();
+            stmt = connection.createStatement();
+            String udapteSQL = "INSERT into nutzer (id, email, PraefVerein, PraefLiga) VALUES (" +
+                    "'" + n.getNutzerID() + "', " +
+                    "'" + n.getNutzerEmail() + "', " +
+                    "'" + n.getNutzerPraefVerein() + "', " +
+                    "'" + n.getNutzerPraefLiga() + "')";
+
+            stmt.executeUpdate(udapteSQL);
+
+            stmt.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            stmt.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
-*/
-    public void createTableUser() {
+
+
+
+    public void createTableNutzer() {
 
        Statement stmt = null;
         Connection connection = null;
         try{
             connection = basicDataSource.getConnection();
             stmt = connection.createStatement();
-            String dropTable = "DROP TABLE IF EXISTS user";
+            String dropTable = "DROP TABLE IF EXISTS nutzer";
             stmt.executeUpdate(dropTable);
 
-            String createTable = "CREATE TABLE user (" +
+            String createTable = "CREATE TABLE nutzer (" +
                     "id SERIAL PRIMARY KEY, " +
                     "email varchar(250) NOT NULL, " +
-                    "verein varchar(100) NOT NULL, " +
-                    "passwort varchar(250) NOT NULL)";
+                    "PraefVerein varchar(100) NOT NULL, " +
+                    "PraefLiga varchar(250) NOT NULL)";
             stmt.executeUpdate(createTable);
 
         }

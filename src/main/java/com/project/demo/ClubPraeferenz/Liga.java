@@ -18,7 +18,7 @@ public class Liga {
         //Was genau soll hier passieren?
     }
     public static void addLiga(Liga l){
-        PostgresDataManager.getPostgresDataManger().addLigaTab(l);
+        PostgresDataManager.getPostgresDataManger().addLigaToTab(l);
     }
 
     public void getSpieltagsergebnis(){
