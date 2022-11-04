@@ -6,12 +6,12 @@ public class Liga {
     private int ligaID;
     private String name = "";
 
-    int anzahlvereine = 18;
+    int anzvereine = 18;
 
-    public Liga(int id, String name, int anzahlvereine){
+    public Liga(int id, String name, int anzvereine){
         this.ligaID = id;
         this.name = name;
-        this.anzahlvereine = anzahlvereine;
+        this.anzvereine = anzvereine;
     }
 
     public static void addLiga(Liga l){
@@ -26,7 +26,7 @@ public class Liga {
         return name;
     }
     public int getVereine(){
-        return anzahlvereine;
+        return anzvereine;
     }
 
 }
