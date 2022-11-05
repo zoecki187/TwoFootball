@@ -2,6 +2,8 @@ package com.project.demo.ClubPraeferenz;
 
 import com.project.demo.DataManager.PostgresDataManager;
 
+import java.util.Collection;
+
 public class Verein {
     private String clubName;
     private int id;
@@ -26,4 +28,5 @@ public class Verein {
     }
     public int getLigaID(){return ligaID;}
     public int getExterneID(){return externeID;}
+    public static Collection<Verein> getVereine() {return PostgresDataManager.getPostgresDataManger().getAllVereine();}
 }

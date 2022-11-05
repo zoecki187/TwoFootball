@@ -15,13 +15,9 @@ public class Liga {
         this.name = name;
         this.anzvereine = anzvereine;
     }
-
-
     public static void addLiga(Liga l){
         PostgresDataManager.getPostgresDataManger().addLigaToTab(l);
     }
-
-
     public int getligaID(){
         return ligaID;
     }
@@ -32,7 +28,5 @@ public class Liga {
         return anzvereine;
     }
     public static Collection<Liga> getLigen() {
-        Collection<Liga> list = PostgresDataManager.getPostgresDataManger().getAllLigen();
-
-        return list;}
+        return PostgresDataManager.getPostgresDataManger().getAllLigen();}
 }

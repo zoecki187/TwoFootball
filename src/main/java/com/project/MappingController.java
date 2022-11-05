@@ -22,11 +22,9 @@ public class MappingController {
     )
     @ResponseStatus(HttpStatus.OK)
     public String createNutzerTable() {
-
         final PostgresDataManager postgresDataManager =
                 PostgresDataManager.getPostgresDataManger();
         postgresDataManager.createTableNutzer();
-
         return "Database User-Table created";
     }
 
@@ -35,11 +33,9 @@ public class MappingController {
     )
     @ResponseStatus(HttpStatus.OK)
     public String createLigaTable() {
-
         final PostgresDataManager postgresDataManager =
                 PostgresDataManager.getPostgresDataManger();
         postgresDataManager.createTableLigen();
-
         return "Database Liga-Table created";
     }
     @PostMapping(
@@ -47,11 +43,9 @@ public class MappingController {
     )
     @ResponseStatus(HttpStatus.OK)
     public String createVereinTable() {
-
         final PostgresDataManager postgresDataManager =
                 PostgresDataManager.getPostgresDataManger();
         postgresDataManager.createTableVereine();
-
         return "Database Verein-Table created";
     }
 
@@ -62,7 +56,6 @@ public class MappingController {
     )
     @ResponseStatus(HttpStatus.OK)
     public String addLiga(@RequestBody Liga liga) {
-
          Liga.addLiga(liga);
         return "Liga "+liga.getLiga()+" zur DB hinzugefügt mit ID / Vereine: "+liga.getligaID()+" / "+liga.getVereine();
 
@@ -74,7 +67,6 @@ public class MappingController {
     )
     @ResponseStatus(HttpStatus.OK)
     public String addVerein(@RequestBody Verein verein) {
-
         Verein.addVerein(verein);
         return "Verein "+verein.getVerein()+" zur DB hinzugefügt aus Liga: "+verein.getLigaID()+"; ID / externAPI: "+verein.getVereinID()+" / "+verein.getExterneID();
     }
@@ -85,7 +77,6 @@ public class MappingController {
     )
     @ResponseStatus(HttpStatus.OK)
     public String addNutzer(@RequestBody Nutzer nutzer) {
-
         Nutzer.addNutzer(nutzer);
         return "Nutzer "+nutzer.getNutzerEmail()+" zur DB hinzugefügt per ID: "+nutzer.getNutzerID()+"; Verein "+nutzer.getNutzerPraefVerein()+" / Liga "+nutzer.getNutzerPraefLiga();
     }
@@ -94,11 +85,15 @@ public class MappingController {
 
     @GetMapping("/liga/all")
     public Collection<Liga> getLigen() {
-
-     Collection<Liga> l = Liga.getLigen();
-
-     return l;
-
+      return Liga.getLigen();
+    }
+    @GetMapping("/nutzer/all")
+    public Collection<Nutzer> getNutzer() {
+        return Nutzer.getNutzer();
+    }
+    @GetMapping("/verein/all")
+    public Collection<Verein> getVereine() {
+        return Verein.getVereine();
     }
 
 }

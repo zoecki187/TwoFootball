@@ -37,7 +37,7 @@ public class PostgresDataManager {
             postgresDataManager = new PostgresDataManager();
         return postgresDataManager;
     }
-
+//Datensätze hinzufügen
     public void addLigaToTab(Liga l) {
 
         Statement stmt = null;
@@ -124,9 +124,7 @@ public class PostgresDataManager {
         }
 
     }
-
-
-
+    //Tabellen erzeugen
     public void createTableNutzer() {
 
        Statement stmt = null;
@@ -159,7 +157,6 @@ public class PostgresDataManager {
         }
 
     }
-
     public void createTableLigen() {
 
         Statement stmt = null;
@@ -189,9 +186,7 @@ public class PostgresDataManager {
 
             e.printStackTrace();
         }
-
     }
-
     public void createTableVereine() {
 
         Statement stmt = null;
@@ -222,8 +217,8 @@ public class PostgresDataManager {
 
             e.printStackTrace();
         }
-
     }
+    //Getter-Methoden
     public Collection<Liga> getAllLigen() {
 
         List<Liga> ligenListe = new ArrayList<>();
@@ -256,5 +251,71 @@ public class PostgresDataManager {
 
 
         return ligenListe;
+    }
+    public Collection<Nutzer> getAllNutzer() {
+
+        List<Nutzer> nutzerListe = new ArrayList<>();
+        Statement stmt = null;
+        Connection connection = null;
+
+        try {
+            connection = basicDataSource.getConnection();
+            stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM nutzer");
+            while (rs.next()) {
+                nutzerListe.add(
+                        new Nutzer(
+                                rs.getInt("id"),
+                                rs.getString("email"),
+                                rs.getInt("praefverein"),
+                                rs.getInt("praefliga")
+                        )
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            stmt.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        return nutzerListe;
+    }
+    public Collection<Verein> getAllVereine() {
+
+        List<Verein> vereinListe = new ArrayList<>();
+        Statement stmt = null;
+        Connection connection = null;
+
+        try {
+            connection = basicDataSource.getConnection();
+            stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM vereine");
+            while (rs.next()) {
+                vereinListe.add(
+                        new Verein(
+                                rs.getInt("id"),
+                                rs.getString("name"),
+                                rs.getInt("ligaID"),
+                                rs.getInt("externeID")
+                        )
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            stmt.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return vereinListe;
     }
 }
