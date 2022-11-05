@@ -96,11 +96,13 @@ public class MappingController {
     public /*Collection<Liga>*/ String getLigen() {
 
      Collection<Liga> l = Liga.getLigen();
+     String r = "leer";
+
 
         for (Liga liga : l) {
-            System.out.println(liga.getligaID());
+            r = liga.getLiga()+" " + liga.getVereine()+" " + liga.getligaID();
         }
-    return "fertig";
+   return r;
     }
 
 }
