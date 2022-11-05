@@ -33,5 +33,6 @@ public class Liga {
     }
     public static Collection<Liga> getLigen() {
         Collection<Liga> list = PostgresDataManager.getPostgresDataManger().getAllLigen();
+        System.out.println("hier");
         return list;}
 }
