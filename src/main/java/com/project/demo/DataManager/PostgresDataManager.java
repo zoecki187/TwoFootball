@@ -301,8 +301,8 @@ public class PostgresDataManager {
                         new Verein(
                                 rs.getInt("id"),
                                 rs.getString("name"),
-                                rs.getInt("ligaID"),
-                                rs.getInt("externeID")
+                                rs.getInt("ligaid"),
+                                rs.getInt("externeid")
                         )
                 );
             }
