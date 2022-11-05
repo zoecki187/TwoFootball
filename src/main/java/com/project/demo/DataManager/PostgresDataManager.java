@@ -237,7 +237,7 @@ public class PostgresDataManager {
             while (rs.next()) {
                 ligenListe.add(
                         new Liga(
-                                rs.getInt("ligaID"),
+                                rs.getInt("id"),
                                 rs.getString("name"),
                                 rs.getInt("anzvereine")
                         )
