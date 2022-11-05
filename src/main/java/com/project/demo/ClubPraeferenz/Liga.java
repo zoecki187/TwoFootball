@@ -2,6 +2,8 @@ package com.project.demo.ClubPraeferenz;
 
 import com.project.demo.DataManager.PostgresDataManager;
 
+import java.util.Collection;
+
 public class Liga {
     private int ligaID;
     private String name = "";
@@ -13,6 +15,7 @@ public class Liga {
         this.name = name;
         this.anzvereine = anzvereine;
     }
+
 
     public static void addLiga(Liga l){
         PostgresDataManager.getPostgresDataManger().addLigaToTab(l);
@@ -28,5 +31,7 @@ public class Liga {
     public int getVereine(){
         return anzvereine;
     }
-
+    public static Collection<Liga> getLigen() {
+        Collection<Liga> list = PostgresDataManager.getPostgresDataManger().getAllLigen();
+        return list;}
 }

@@ -6,9 +6,12 @@ import com.project.demo.ClubPraeferenz.Liga;
 import org.apache.commons.dbcp.BasicDataSource;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 
 public class PostgresDataManager {
@@ -220,5 +223,38 @@ public class PostgresDataManager {
             e.printStackTrace();
         }
 
+    }
+    public Collection<Liga> getAllLigen() {
+
+        List<Liga> ligenListe = new ArrayList<>();
+        Statement stmt = null;
+        Connection connection = null;
+
+        try {
+            connection = basicDataSource.getConnection();
+            stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM ligen");
+            while (rs.next()) {
+                ligenListe.add(
+                        new Liga(
+                                rs.getInt("ligaID"),
+                                rs.getString("name"),
+                                rs.getInt("anzvereine")
+                        )
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            stmt.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        return ligenListe;
     }
 }

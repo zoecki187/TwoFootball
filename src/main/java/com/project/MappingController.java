@@ -8,6 +8,8 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import com.project.demo.Anwender.Nutzer;
 
+import java.util.Collection;
+
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
@@ -86,6 +88,15 @@ public class MappingController {
 
         Nutzer.addNutzer(nutzer);
         return "Nutzer "+nutzer.getNutzerEmail()+" zur DB hinzugefügt per ID: "+nutzer.getNutzerID()+"; Verein "+nutzer.getNutzerPraefVerein()+" / Liga "+nutzer.getNutzerPraefLiga();
+    }
+
+    //Get-Mapping
+
+    @GetMapping("/liga/all")
+    public Collection<Liga> getLigen() {
+
+      return  Liga.getLigen();
+
     }
 
 }
