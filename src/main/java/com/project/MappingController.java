@@ -101,8 +101,9 @@ public class MappingController {
 
         for (Liga liga : l) {
             r = liga.getLiga()+" " + liga.getVereine()+" " + liga.getligaID();
+            return r;
         }
-   return r;
+   return "fertig";
     }
 
 }
