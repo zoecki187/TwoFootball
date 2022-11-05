@@ -93,19 +93,12 @@ public class MappingController {
     //Get-Mapping
 
     @GetMapping("/liga/all")
-    public /*Collection<Liga>*/ String getLigen() {
+    public Collection<Liga> getLigen() {
 
      Collection<Liga> l = Liga.getLigen();
-     String r = "leer";
-     int i=88;
-     int z =9;
 
+     return l;
 
-        for (Liga liga : l) {
-           i = liga.getligaID();
-
-        }
-   return "fertig"+z+i;
     }
 
 }
