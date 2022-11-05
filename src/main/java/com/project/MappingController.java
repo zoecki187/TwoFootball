@@ -98,13 +98,14 @@ public class MappingController {
      Collection<Liga> l = Liga.getLigen();
      String r = "leer";
      int i=88;
+     int z =9;
 
 
         for (Liga liga : l) {
            i = liga.getligaID();
 
         }
-   return "fertig" + i;
+   return "fertig"+z+i;
     }
 
 }
