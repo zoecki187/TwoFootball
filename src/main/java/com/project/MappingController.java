@@ -117,11 +117,11 @@ public class MappingController {
             // ich weiß, jemand hat gesagt: Read all my tasks.
             StringBuilder outText = new StringBuilder("Dein Lieblingsverein ist ");
             try {
-                String email = "lukas.mahlein@gmx.de";
+                //String email = "lukas.mahlein@gmx.de";
                 // hier Präferenz holen
-                String nutzerPraef = PostgresDataManager.getPostgresDataManger().getLiebVerein(email).getVerein();
+                //String nutzerPraef = PostgresDataManager.getPostgresDataManger().getLiebVerein(email).getVerein();
                 // hier ausgeben mit Alexa
-                outText.append(nutzerPraef);
+                //outText.append(nutzerPraef);
                 outText.append("1860 bis in den Tod! ");
             } catch (Exception e) {
                 outText.append("Unfortunately, we cannot reach heroku. Our REST server is not responding. ");

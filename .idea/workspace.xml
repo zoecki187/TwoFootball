@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="00e910a8-3b0c-4ec5-b807-54a400fea313" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/demo/DataManager/PostgresDataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/demo/DataManager/PostgresDataManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
