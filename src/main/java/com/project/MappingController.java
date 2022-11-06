@@ -106,16 +106,16 @@ public class MappingController {
             consumes = {MediaType.APPLICATION_JSON_VALUE},
             produces = {MediaType.APPLICATION_JSON_VALUE}
     )
-    public AlexaRO getTasks(@RequestBody AlexaRO alexaRO) {
+    public AlexaRO getLieblingsVerein(@RequestBody AlexaRO alexaRO) {
         if (alexaRO.getRequest().getType().equalsIgnoreCase("LaunchRequest")) {
             return
                     prepareResponse(alexaRO, "Wilkommen bei TwoFootball. ", false);
         }
 
         if (alexaRO.getRequest().getType().equals("IntentRequest") && //TaskReadIntent anpassen
-                (alexaRO.getRequest().getIntent().getName().equals("TaskReadIntent"))) {
+                (alexaRO.getRequest().getIntent().getName().equals("prefReadIntent"))) {
             // ich weiß, jemand hat gesagt: Read all my tasks.
-            StringBuilder outText = new StringBuilder("Hello. You have to do the following tasks. ");
+            StringBuilder outText = new StringBuilder("Dein Lieblingsverein ist ");
             try {
                 String email = "lukas.mahlein@gmx.de";
                 // hier Präferenz holen

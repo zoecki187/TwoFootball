@@ -5,19 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00e910a8-3b0c-4ec5-b807-54a400fea313" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/project/demo/alexa/AlexaRO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/project/demo/alexa/ContextRO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/project/demo/alexa/IntentRO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/project/demo/alexa/OutputSpeechRO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/project/demo/alexa/RequestRO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/project/demo/alexa/ResponseRO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/project/demo/alexa/SessionRO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/project/demo/alexa/SlotsRO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/project/MappingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/MappingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/demo/Anwender/Nutzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/demo/Anwender/Nutzer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/demo/DataManager/PostgresDataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/demo/DataManager/PostgresDataManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/demo/alexa/AlexaRO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/demo/alexa/AlexaRO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,6 +95,19 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.project.Main" />
+      <module name="demo.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="com.demo" />
       <method v="2">
@@ -115,6 +121,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

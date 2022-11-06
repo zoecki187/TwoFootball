@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.*;
 import java.util.HashMap;
 import java.util.Map;
 
-@JsonRootName(value = "TaskListRO")
+@JsonRootName(value = "VereinRO")
 public class AlexaRO
 {
     protected final static String TYPENAME = "Alexa";
