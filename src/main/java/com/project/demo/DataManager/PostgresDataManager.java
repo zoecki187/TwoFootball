@@ -1,14 +1,11 @@
 package com.project.demo.DataManager;
-import com.project.demo.ClubPraeferenz.Verein;
-import com.project.demo.Anwender.Nutzer;
 
+import com.project.demo.Anwender.Nutzer;
 import com.project.demo.ClubPraeferenz.Liga;
+import com.project.demo.ClubPraeferenz.Verein;
 import org.apache.commons.dbcp.BasicDataSource;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -318,4 +315,36 @@ public class PostgresDataManager {
         }
         return vereinListe;
     }
+
+    public Verein getLiebVerein(String nutzerEmail) {
+
+        Statement stmt = null;
+        Connection connection = null;
+
+        try {
+            connection = basicDataSource.getConnection();
+            stmt = connection.createStatement();
+            PreparedStatement getEntrie = connection.prepareStatement("SELECT * FROM verein WHERE id=( SELECT praefverein FROM nutzer WHERE email=?");
+            getEntrie.setString(1, nutzerEmail);
+            ResultSet rs = getEntrie.executeQuery();
+
+            Verein liebVerein = new Verein(
+                    rs.getInt("id"),
+                    rs.getString("name"),
+                    rs.getInt("ligaid"),
+                    rs.getInt("externeid")
+            );
+            return liebVerein;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            stmt.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

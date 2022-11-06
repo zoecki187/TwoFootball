@@ -24,4 +24,5 @@ public class Nutzer {
     public int getNutzerPraefLiga(){return praefliga;}
     public static void addNutzer(Nutzer n){PostgresDataManager.getPostgresDataManger().addNutzerToTab(n);}
     public static Collection<Nutzer> getNutzer() {return PostgresDataManager.getPostgresDataManger().getAllNutzer();}
+
 }
