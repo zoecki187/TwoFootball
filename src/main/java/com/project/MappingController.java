@@ -119,7 +119,7 @@ public class MappingController {
             try {
 
                 // hier Präferenz holen
-                String nutzerPraef = PostgresDataManager.getPostgresDataManger().getLiebVerein("'timo.werner@gmx.de'").getVerein();
+                String nutzerPraef = PostgresDataManager.getPostgresDataManger().getLiebVerein("timo.werner@gmx.de").getVerein();
                 // hier ausgeben mit Alexa
                 outText.append(nutzerPraef);
                 //outText.append("1860 bis in den Tod! ");
