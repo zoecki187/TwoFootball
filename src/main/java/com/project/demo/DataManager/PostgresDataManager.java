@@ -100,8 +100,7 @@ public class PostgresDataManager {
         try {
             connection = basicDataSource.getConnection();
             stmt = connection.createStatement();
-            String udapteSQL = "INSERT into nutzer (id, email, praefverein, praefliga) VALUES (" +
-                    "'" + n.getNutzerID() + "', " +
+            String udapteSQL = "INSERT into nutzer (email, praefverein, praefliga) VALUES (" +
                     "'" + n.getNutzerEmail() + "', " +
                     "'" + n.getNutzerPraefVerein() + "', " +
                     "'" + n.getNutzerPraefLiga() + "')";
@@ -133,8 +132,7 @@ public class PostgresDataManager {
             stmt.executeUpdate(dropTable);
 
             String createTable = "CREATE TABLE nutzer (" +
-                    "id SERIAL PRIMARY KEY, " +
-                    "email varchar(250) NOT NULL, " +
+                    "email SERIAL PRIMARY KEY, " +
                     "PraefVerein int NOT NULL, " +
                     "PraefLiga int NOT NULL)";
             stmt.executeUpdate(createTable);
@@ -262,7 +260,6 @@ public class PostgresDataManager {
             while (rs.next()) {
                 nutzerListe.add(
                         new Nutzer(
-                                rs.getInt("id"),
                                 rs.getString("email"),
                                 rs.getInt("praefverein"),
                                 rs.getInt("praefliga")

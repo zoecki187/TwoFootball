@@ -7,18 +7,17 @@ import java.util.Collection;
 public class Nutzer {
     private String email;
 
-    private int id;
+
     private int praefverein;
     private int praefliga;
 
 
-    public Nutzer (int id, String email, int praefverein, int praefliga){
-    this.id=id;
+    public Nutzer (String email, int praefverein, int praefliga){
     this.email=email;
     this.praefverein=praefverein;
     this.praefliga=praefliga;
     }
-    public int getNutzerID(){return id;}
+
     public String getNutzerEmail(){return email;}
     public int getNutzerPraefVerein(){return praefverein;}
     public int getNutzerPraefLiga(){return praefliga;}
