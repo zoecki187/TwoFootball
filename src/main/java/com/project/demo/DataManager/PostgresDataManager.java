@@ -332,6 +332,7 @@ public class PostgresDataManager {
                     rs.getInt("ligaid"),
                     rs.getInt("externeid")
             );
+            return liebVerein;
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -342,7 +343,7 @@ public class PostgresDataManager {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return liebVerein;
+        return null;
     }
 
 }
