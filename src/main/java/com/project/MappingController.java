@@ -124,7 +124,8 @@ public class MappingController {
                 outText.append(nutzerPraef);
                 //outText.append("1860 bis in den Tod! ");
             } catch (Exception e) {
-                outText.append("Unfortunately, we cannot reach heroku. Our REST server is not responding. ");
+               // outText.append("Unfortunately, we cannot reach heroku. Our REST server is not responding. ");
+                outText.append(e.toString());
             }
             return
                     prepareResponse(alexaRO, outText.toString(), true);
