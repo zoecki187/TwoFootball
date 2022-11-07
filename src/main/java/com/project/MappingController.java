@@ -117,7 +117,7 @@ public class MappingController {
             // ich weiß, jemand hat gesagt: Read all my tasks.
             StringBuilder outText = new StringBuilder("Dein Lieblingsverein ist ");
             try {
-                String email = "lukas.mahlein@gmx.de";
+                String email = "timo.werner@gmx.de";
                 // hier Präferenz holen
                 String nutzerPraef = PostgresDataManager.getPostgresDataManger().getLiebVerein(email).getVerein();
                 // hier ausgeben mit Alexa
