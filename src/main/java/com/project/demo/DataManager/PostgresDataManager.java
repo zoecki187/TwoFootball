@@ -318,6 +318,7 @@ public class PostgresDataManager {
 
         PreparedStatement stmt = null;
         Connection connection = null;
+        Verein liebVerein = null;
 
         try {
             connection = basicDataSource.getConnection();
@@ -325,13 +326,13 @@ public class PostgresDataManager {
             stmt.setString(1, nutzerEmail);
             ResultSet rs = stmt.executeQuery();
 
-            Verein liebVerein = new Verein(
+            liebVerein = new Verein(
                     rs.getInt("id"),
                     rs.getString("name"),
                     rs.getInt("ligaid"),
                     rs.getInt("externeid")
             );
-            return liebVerein;
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -341,7 +342,7 @@ public class PostgresDataManager {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        return liebVerein;
     }
 
 }
