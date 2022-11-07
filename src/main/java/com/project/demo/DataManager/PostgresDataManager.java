@@ -328,13 +328,13 @@ public class PostgresDataManager {
           //  stmt = connection.prepareStatement("SELECT * FROM vereine WHERE id=( SELECT praefverein FROM nutzer WHERE email='timo.werner@gmx.de'");
            // stmt.setString(1, nutzerEmail);
           //  ResultSet rs = stmt.executeQuery();
-
+            while (rs.next()) {
             liebVerein = new Verein(
                     rs.getInt("id"),
                     rs.getString("name"),
                     rs.getInt("ligaid"),
                     rs.getInt("externeid")
-            );
+            );}
 
 
         } catch (SQLException e) {
