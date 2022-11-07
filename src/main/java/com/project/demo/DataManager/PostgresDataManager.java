@@ -322,7 +322,7 @@ public class PostgresDataManager {
 
         try {
             connection = basicDataSource.getConnection();
-            stmt = connection.prepareStatement("SELECT * FROM vereine WHERE id=( SELECT praefverein FROM nutzer WHERE email=timo.werner@gmx.de");
+            stmt = connection.prepareStatement("SELECT * FROM vereine WHERE id=80");
             stmt.setString(1, nutzerEmail);
             ResultSet rs = stmt.executeQuery();
 
