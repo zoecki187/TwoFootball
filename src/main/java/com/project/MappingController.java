@@ -81,7 +81,7 @@ public class MappingController {
     @ResponseStatus(HttpStatus.OK)
     public String addNutzer(@RequestBody Nutzer nutzer) {
         Nutzer.addNutzer(nutzer);
-        return "Nutzer "+nutzer.getNutzerEmail()+" zur DB hinzugefügt per ID: "+nutzer.getNutzerID()+"; Verein "+nutzer.getNutzerPraefVerein()+" / Liga "+nutzer.getNutzerPraefLiga();
+        return "Nutzer "+nutzer.getNutzerEmail()+ "Verein "+nutzer.getNutzerPraefVerein()+" / Liga "+nutzer.getNutzerPraefLiga();
     }
 
     //Get-Mapping
