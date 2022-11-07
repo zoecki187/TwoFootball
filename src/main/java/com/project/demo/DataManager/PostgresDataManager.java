@@ -316,18 +316,18 @@ public class PostgresDataManager {
 
     public Verein getLiebVerein(String nutzerEmail) {
 
-        Statement stmt = null;
-       // PreparedStatement stmt = null;
+        //Statement stmt = null;
+       PreparedStatement stmt = null;
         Connection connection = null;
         Verein liebVerein = null;
 
         try {
             connection = basicDataSource.getConnection();
-            stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM vereine where id=80");
-          //  stmt = connection.prepareStatement("SELECT * FROM vereine WHERE id=( SELECT praefverein FROM nutzer WHERE email='timo.werner@gmx.de'");
-           // stmt.setString(1, nutzerEmail);
-          //  ResultSet rs = stmt.executeQuery();
+           // stmt = connection.createStatement();
+            //ResultSet rs = stmt.executeQuery("SELECT * FROM vereine where id=80");
+          stmt = connection.prepareStatement("SELECT * FROM vereine WHERE id=( SELECT praefverein FROM nutzer WHERE email=?");
+            stmt.setString(1, nutzerEmail);
+           ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
             liebVerein = new Verein(
                     rs.getInt("id"),
