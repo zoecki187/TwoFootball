@@ -132,7 +132,7 @@ public class PostgresDataManager {
             stmt.executeUpdate(dropTable);
 
             String createTable = "CREATE TABLE nutzer (" +
-                    "email SERIAL PRIMARY KEY, " +
+                    "email VARCHAR(250) PRIMARY KEY, " +
                     "PraefVerein int NOT NULL, " +
                     "PraefLiga int NOT NULL)";
             stmt.executeUpdate(createTable);
