@@ -28,7 +28,7 @@ public class MappingController {
         final PostgresDataManager postgresDataManager =
                 PostgresDataManager.getPostgresDataManger();
         postgresDataManager.createTableNutzer();
-        return "Database User-Table created";
+        return "Datenbank Nutzer-Tabelle erstellt";
     }
 
     @PostMapping(
@@ -39,7 +39,7 @@ public class MappingController {
         final PostgresDataManager postgresDataManager =
                 PostgresDataManager.getPostgresDataManger();
         postgresDataManager.createTableLigen();
-        return "Database Liga-Table created";
+        return "Datenbank Liga-Tabelle erstellt";
     }
     @PostMapping(
             path = "/verein/createtable"
@@ -49,7 +49,7 @@ public class MappingController {
         final PostgresDataManager postgresDataManager =
                 PostgresDataManager.getPostgresDataManger();
         postgresDataManager.createTableVereine();
-        return "Database Verein-Table created";
+        return "Datenbank Vereine-Tabelle erstellt";
     }
 
     //Einträge in die jeweiligen Tabellen schreiben
