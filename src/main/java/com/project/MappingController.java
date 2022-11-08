@@ -110,14 +110,14 @@ public class MappingController {
                     prepareResponse(alexaRO, "Wilkommen bei TwoFootball. ", false);
         }
 
-        if (alexaRO.getRequest().getType().equals("IntentRequest") && //TaskReadIntent anpassen
+        if (alexaRO.getRequest().getType().equals("IntentRequest") &&
                 (alexaRO.getRequest().getIntent().getName().equals("prefReadIntent"))) {
-            // ich weiß, jemand hat gesagt: Read all my tasks.
             StringBuilder outText = new StringBuilder("Dein Lieblingsverein ist ");
             try {
-
+                // hier String hart definieren -> besser wäre durch Alexa selbst gesetzt
+                String nutzerMail = "timo.werner@gmx.de";
                 // hier Präferenz holen
-                String nutzerPraef = PostgresDataManager.getPostgresDataManger().getLiebVerein("flots@mail.de").getVerein();
+                String nutzerPraef = PostgresDataManager.getPostgresDataManger().getLiebVerein(nutzerMail).getVerein();
                 // hier ausgeben mit Alexa
                 outText.append(nutzerPraef);
                 //outText.append("1860 bis in den Tod! ");
