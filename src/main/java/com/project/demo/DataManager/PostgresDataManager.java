@@ -325,10 +325,10 @@ public class PostgresDataManager {
             connection = basicDataSource.getConnection();
            // stmt = connection.createStatement();
             //ResultSet rs = stmt.executeQuery("SELECT * FROM vereine where id=80");
-            String abfrage = "SELECT * FROM vereine WHERE id=(SELECT praefverein FROM nutzer where email= ?)";
+            String abfrage = "SELECT * FROM vereine WHERE id=(SELECT praefverein FROM nutzer WHERE email='timo.werner@gmx.de')";
             PreparedStatement ps = connection.prepareStatement(abfrage);
           //stmt = connection.prepareStatement("SELECT * FROM vereine WHERE id=( SELECT praefverein FROM nutzer WHERE email = ?");
-            ps.setString(1, "timo.werner@gmx.de");
+            //ps.setString(1, "timo.werner@gmx.de");
            ResultSet rs = ps.executeQuery();
             while (rs.next()) {
             liebVerein = new Verein(
