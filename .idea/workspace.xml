@@ -5,6 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00e910a8-3b0c-4ec5-b807-54a400fea313" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/project/MappingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/project/MappingController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/project/demo/Anwender/Nutzer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/project/demo/Anwender/Nutzer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/project/demo/DataManager/PostgresDataManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/project/demo/DataManager/PostgresDataManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/project/demo/alexa/AlexaRO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/project/demo/alexa/AlexaRO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/project/demo/DataManager/PostgresDataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/demo/DataManager/PostgresDataManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -147,5 +153,10 @@
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/demo$Main.ic" NAME="Main Coverage Results" MODIFIED="1667868266030" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.project.*</FILTER>
+    </SUITE>
   </component>
 </project>
