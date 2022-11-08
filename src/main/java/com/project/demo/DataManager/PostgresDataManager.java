@@ -195,7 +195,7 @@ public class PostgresDataManager {
             String createTable = "CREATE TABLE vereine (" +
                     "id SERIAL PRIMARY KEY, " +
                     "name varchar(250) NOT NULL, " +
-                    "ligaID int NOT NULL) " ;
+                    "ligaid int NOT NULL) " ;
 
             stmt.executeUpdate(createTable);
 
