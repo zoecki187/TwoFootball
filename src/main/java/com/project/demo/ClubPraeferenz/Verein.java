@@ -9,13 +9,13 @@ public class Verein {
     private int id;
     String name;
     int ligaID;
-    int externeID;
 
-    public Verein(int id, String name, int ligaID, int externeID){
+
+    public Verein(int id, String name, int ligaID){
        this.id=id;
        this.name=name;
        this.ligaID=ligaID;
-       this.externeID=externeID;
+
     }
     public static void addVerein(Verein v){
         PostgresDataManager.getPostgresDataManger().addVereinToTab(v);
@@ -27,6 +27,6 @@ public class Verein {
         return id;
     }
     public int getLigaID(){return ligaID;}
-    public int getExterneID(){return externeID;}
+
     public static Collection<Verein> getVereine() {return PostgresDataManager.getPostgresDataManger().getAllVereine();}
 }

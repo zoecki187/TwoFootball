@@ -10,9 +10,7 @@ import com.project.demo.alexa.ResponseRO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.*;
+
 import java.util.Collection;
 
 
@@ -86,25 +84,6 @@ public class MappingController {
         return "Nutzer "+nutzer.getNutzerEmail()+ "Verein "+nutzer.getNutzerPraefVerein()+" / Liga "+nutzer.getNutzerPraefLiga();
     }
 
-    @PostMapping(
-            path = "/verein/fill",
-            consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}
-    )
-    @ResponseStatus(HttpStatus.OK)
-    public String fillVereinDB() {
-        // parsing file
-        Object ob = new JSONParser().parse(new FileReader("C:\\Users\\Lenovo\\OneDrive\\Dokumente\\JSON"));
-
-        // typecasting ob to JSONObject
-        JSONObject js = (JSONObject) ob;
-
-        String firstName = (String) js.get("firstName");
-        String lastName = (String) js.get("lastName");
-
-        System.out.println("First name is: " + firstName);
-        System.out.println("Last name is: " +lastName);
-    }
-
     //Get-Mapping
 
     @GetMapping("/liga/all")
@@ -119,8 +98,6 @@ public class MappingController {
     public Collection<Verein> getVereine() {
         return Verein.getVereine();
     }
-
-
 
     @PostMapping(
             path = "/alexa",

@@ -74,8 +74,7 @@ public class PostgresDataManager {
             String udapteSQL = "INSERT into vereine (id, name, ligaID, externeID) VALUES (" +
                     "'" + v.getVereinID() + "', " +
                     "'" + v.getVerein() + "', " +
-                    "'" + v.getLigaID() + "', " +
-                    "'" + v.getExterneID() + "')";
+                    "'" + v.getLigaID() + "')";
 
             stmt.executeUpdate(udapteSQL);
 
@@ -196,8 +195,8 @@ public class PostgresDataManager {
             String createTable = "CREATE TABLE vereine (" +
                     "id SERIAL PRIMARY KEY, " +
                     "name varchar(250) NOT NULL, " +
-                    "ligaID int NOT NULL, " +
-                    "externeID int NOT NULL)";
+                    "ligaID int NOT NULL) " ;
+
             stmt.executeUpdate(createTable);
 
         }
@@ -296,8 +295,8 @@ public class PostgresDataManager {
                         new Verein(
                                 rs.getInt("id"),
                                 rs.getString("name"),
-                                rs.getInt("ligaid"),
-                                rs.getInt("externeid")
+                                rs.getInt("ligaid")
+
                         )
                 );
             }
@@ -333,8 +332,8 @@ public class PostgresDataManager {
             liebVerein = new Verein(
                     rs.getInt("id"),
                     rs.getString("name"),
-                    rs.getInt("ligaid"),
-                    rs.getInt("externeid")
+                    rs.getInt("ligaid")
+
             );}
 
 
