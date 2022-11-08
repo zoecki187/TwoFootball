@@ -71,7 +71,7 @@ public class MappingController {
     @ResponseStatus(HttpStatus.OK)
     public String addVerein(@RequestBody Verein verein) {
         Verein.addVerein(verein);
-        return "Verein "+verein.getVerein()+" zur DB hinzugefügt aus Liga: "+verein.getLigaID()+"; ID / externAPI: "+verein.getVereinID()+" / "+verein.getExterneID();
+        return "Verein "+verein.getVerein()+" zur DB hinzugefügt aus Liga: "+verein.getLigaID()+"; ID / externAPI: "+verein.getVereinID();
     }
 
     @PostMapping(
