@@ -71,7 +71,7 @@ public class PostgresDataManager {
         try {
             connection = basicDataSource.getConnection();
             stmt = connection.createStatement();
-            String udapteSQL = "INSERT into vereine (id, name, ligaID) VALUES (" +
+            String udapteSQL = "INSERT into vereine (id, name, ligaid) VALUES (" +
                     "'" + v.getVereinID() + "', " +
                     "'" + v.getVerein() + "', " +
                     "'" + v.getLigaID() + "')";
