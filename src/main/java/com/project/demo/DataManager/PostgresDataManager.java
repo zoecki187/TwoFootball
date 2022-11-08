@@ -326,7 +326,7 @@ public class PostgresDataManager {
            // stmt = connection.createStatement();
             //ResultSet rs = stmt.executeQuery("SELECT * FROM vereine where id=80");
 
-          stmt = connection.prepareStatement("SELECT * FROM vereine WHERE id=( SELECT praefverein FROM nutzer WHERE email =('%'?'%'))");
+          stmt = connection.prepareStatement("SELECT * FROM vereine WHERE id=( SELECT praefverein FROM nutzer WHERE email ='%'?'%')");
             stmt.setString(1, "timo.werner@gmx.de");
            ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
