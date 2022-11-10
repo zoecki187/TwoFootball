@@ -115,7 +115,8 @@ public class MappingController {
             StringBuilder outText = new StringBuilder("Dein Lieblingsverein ist ");
             try {
                 // hier String hart definieren -> besser wäre durch Alexa selbst gesetzt
-                String nutzerMail = "timo.werner@gmx.de";
+                //String nutzerMail = "timo.werner@gmx.de";
+                String nutzerMail = alexaRO.getRequest().getIntent().getSlots().getEmailRO().getEmail();
                 // hier Präferenz holen
                 String nutzerPraef = PostgresDataManager.getPostgresDataManger().getLiebVerein(nutzerMail).getVerein();
                 // hier ausgeben mit Alexa
