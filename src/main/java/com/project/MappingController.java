@@ -114,8 +114,7 @@ public class MappingController {
                 (alexaRO.getRequest().getIntent().getName().equals("prefReadIntent"))) {
             StringBuilder outText = new StringBuilder("Dein Lieblingsverein ist ");
             try {
-                // hier String hart definieren -> besser wäre durch Alexa selbst gesetzt
-                //String nutzerMail = "timo.werner@gmx.de";
+                // String mail wird aus der Alexa-Anfrage geholt
                 String nutzerMail = alexaRO.getRequest().getIntent().getSlots().getEmailRO().getEmail();
                 // hier Präferenz holen
                 String nutzerPraef = PostgresDataManager.getPostgresDataManger().getLiebVerein(nutzerMail).getVerein();
@@ -123,14 +122,14 @@ public class MappingController {
                 outText.append(nutzerPraef);
                 //outText.append("1860 bis in den Tod! ");
             } catch (Exception e) {
-               // outText.append("Unfortunately, we cannot reach heroku. Our REST server is not responding. ");
-                outText.append(e.toString());
+               outText.append("Dieser Nutzer ist bei uns nicht registriert! ");
+                //outText.append(e.toString());
             }
             return
                     prepareResponse(alexaRO, outText.toString(), true);
         }
         return
-                prepareResponse(alexaRO, "We could not help you. ", true);
+                prepareResponse(alexaRO, "Wir können dir leider nicht helfen. ", true);
     }
 
     private AlexaRO prepareResponse(AlexaRO alexaRO, String outText, boolean shouldEndSession) {
