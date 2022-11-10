@@ -112,6 +112,7 @@ public class MappingController {
 
         if (alexaRO.getRequest().getType().equals("IntentRequest") &&
                 (alexaRO.getRequest().getIntent().getName().equals("prefReadIntent"))) {
+
             StringBuilder outText = new StringBuilder("Dein Lieblingsverein ist ");
             try {
                 // String mail wird aus der Alexa-Anfrage geholt
@@ -119,11 +120,12 @@ public class MappingController {
                 // hier Präferenz holen
                 String nutzerPraef = PostgresDataManager.getPostgresDataManger().getLiebVerein(nutzerMail).getVerein();
                 // hier ausgeben mit Alexa
-                outText.append(nutzerPraef);
+                if(nutzerPraef != null) {
+                    outText.append(nutzerPraef);
+                }else outText= new StringBuilder("Der Nutzer ist nicht bei uns registriert");
                 //outText.append("1860 bis in den Tod! ");
             } catch (Exception e) {
-               outText.append("nicht bei uns hinterlegt! ");
-                //outText.append(e.toString());
+                outText.append(e.toString());
             }
             return
                     prepareResponse(alexaRO, outText.toString(), true);
