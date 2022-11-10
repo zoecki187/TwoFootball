@@ -122,7 +122,7 @@ public class MappingController {
                 outText.append(nutzerPraef);
                 //outText.append("1860 bis in den Tod! ");
             } catch (Exception e) {
-               outText.append("Dieser Nutzer ist bei uns nicht registriert! ");
+               outText.append("nicht bei uns hinterlegt! ");
                 //outText.append(e.toString());
             }
             return
