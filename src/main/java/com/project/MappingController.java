@@ -122,7 +122,7 @@ public class MappingController {
                 // hier ausgeben mit Alexa
                 if(nutzerPraef != null) {
                     outText.append(nutzerPraef);
-                }else outText= new StringBuilder("Der Nutzer ist nicht bei uns registriert");
+                }else outText.replace(1, 30,"Nutzer nicht registriert");
                 //outText.append("1860 bis in den Tod! ");
             } catch (Exception e) {
                 outText.append(e.toString());
