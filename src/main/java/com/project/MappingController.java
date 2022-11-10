@@ -120,12 +120,11 @@ public class MappingController {
                 // hier Präferenz holen
                 String nutzerPraef = PostgresDataManager.getPostgresDataManger().getLiebVerein(nutzerMail).getVerein();
                 // hier ausgeben mit Alexa
-                if(nutzerPraef != null) {
-                    outText.append(nutzerPraef);
-                }else outText.replace(1, 30,"Nutzer nicht registriert");
+                outText.append(nutzerPraef);
                 //outText.append("1860 bis in den Tod! ");
             } catch (Exception e) {
-                outText.append(e.toString());
+                outText.append("bei uns nicht hinterlegt!");
+                //outText.append(e.toString());
             }
             return
                     prepareResponse(alexaRO, outText.toString(), true);
